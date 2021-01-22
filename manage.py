@@ -7,6 +7,12 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'nmSite.settings')
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+	STATIC_URL = '/static/'
+	STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),)
+    
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
